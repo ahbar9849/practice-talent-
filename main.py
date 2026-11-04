@@ -1,14 +1,66 @@
-class student :
-    def __init__(self, name, age, grade):
-        self.name = name
-        self.age = age
-        self.grade = grade
+from bank import BankAccount
 
-    def get_name(self,mesaage):
-        print(self.name,mesaage)
-s1 = student("ahbar",22,"A")
-s2 = student("ahbar",22,"A")
-s3 = student("ahbar",22,"A")
-print(s1.name)
 
-s1.get_name("aur kaise hai mama")
+account1 = BankAccount(
+    "Ahbar",
+    "10001",
+    "1234",
+    10000
+)
+
+
+while True:
+
+    print("\n========== MY BANK ==========")
+
+    print("1. Account Details")
+    print("2. Check Balance")
+    print("3. Deposit")
+    print("4. Withdraw")
+    print("5. Exit")
+
+    try:
+
+        choice = int(input("Enter your choice: "))
+
+        if choice == 1:
+
+            account1.display_details()
+
+        elif choice == 2:
+
+            account1.check_balance()
+
+        elif choice == 3:
+
+            amount = float(input("Enter deposit amount: "))
+
+            account1.deposit(amount)
+
+        elif choice == 4:
+
+            amount = float(input("Enter withdrawal amount: "))
+
+            account1.withdraw(amount)
+
+        elif choice == 5:
+
+            print("Thank you for banking with us!")
+            break
+
+        else:
+
+            print("Invalid choice!")
+
+    except ValueError:
+
+        print("Please enter a valid number!")
+
+    except KeyboardInterrupt:
+
+        print("\nApplication interrupted!")
+        break
+
+    finally:
+
+        print("Banking operation completed.")
